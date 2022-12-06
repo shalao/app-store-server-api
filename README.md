@@ -18,7 +18,7 @@ cover all the functionality together, who knows :)
 
 Nothing special here, just use composer to install the package:
 
-> composer install readdle/app-store-server-api
+> composer install shalao/app-store-server-api
 
 # Usage
 
