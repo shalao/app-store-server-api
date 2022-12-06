@@ -31,7 +31,8 @@ abstract class AbstractResponse
     /**
      * @throws MalformedResponseException
      */
-    public static function createFromString(string $string, AbstractRequest $originalRequest): static
+    //public static function createFromString(string $string, AbstractRequest $originalRequest): static
+    public static function createFromString(string $string, AbstractRequest $originalRequest)
     {
         $array = json_decode($string, true);
 

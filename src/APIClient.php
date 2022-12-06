@@ -96,10 +96,20 @@ final class APIClient
 
     private function getBaseURL(): string
     {
-        return match($this->environment) {
+     /*   return match($this->environment) {
             self::ENVIRONMENT_PRODUCTION => self::PRODUCTION_BASE_URL,
             self::ENVIRONMENT_SANDBOX => self::SANDBOX_BASE_URL,
-        };
+    };
+      */
+    
+        switch (true) {
+            case self::ENVIRONMENT_PRODUCTION === $this->environment:
+                return self::PRODUCTION_BASE_URL;
+            case self::ENVIRONMENT_SANDBOX === $this->environment:
+                return self::SANDBOX_BASE_URL;
+            default :
+                throw new InvalidArgumentException(__FUNCTION__."PHP Fatal error:  Uncaught UnhandledMatchError: Unhandled match case");
+        }   
     }
 
     /**
