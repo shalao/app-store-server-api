@@ -27,7 +27,7 @@ final class Helper
                 if (!array_key_exists($key, $input)) {
                     continue;
                 }
-
+                /*
                 yield $key => match ($type) {
                     'int' => (int) $input[$key],
                     'bool' => (bool) $input[$key],
@@ -36,6 +36,24 @@ final class Helper
 
                     default => null,
                 };
+                */
+                switch (true) {
+                  case 'int' === $type:
+                      yield $key => (int) $input[$key];
+                      break;
+                  case 'bool' === $type:
+                      yield $key => (bool) $input[$key];
+                      break;
+                  case 'float' === $type :
+                      yield $key =>  (float) $input[$key];
+                      break;
+                  case 'string' === $type :
+                      yield $key => (string) $input[$key];
+                      break;
+                  default:
+                      yield $key => null;
+                      break;
+                  }
             }
         }
     }

@@ -19,6 +19,15 @@ function dump($string): void
     echo "\n";
 }
 
+//php 7 not following function,reference address：https://www.php.net/manual/en/function.str-starts-with.php
+
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+    }
+}
+
+
 //
 // App Store Server API
 //
